@@ -24,9 +24,13 @@ type Todo = {
     created_at: string
 }
 
-window.localStorage.todos = JSON.stringify(new Array());
+let initialState: Todo[] = [] 
 
-let initialState: Todo[] = JSON.parse(window.localStorage.todos);
+if(!window.localStorage.todos){
+    window.localStorage.todos = JSON.stringify(new Array());
+}else{
+     initialState = JSON.parse(window.localStorage.todos);
+}
 
 export const todoReducer = createSlice({
     name: 'todo',
