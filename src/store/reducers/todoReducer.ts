@@ -24,6 +24,7 @@ type Todo = {
     created_at: string
 }
 
+window.localStorage.todos = JSON.stringify(new Array());
 
 let initialState: Todo[] = JSON.parse(window.localStorage.todos);
 
